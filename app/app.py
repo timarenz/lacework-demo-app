@@ -3,14 +3,13 @@ import platform
 import random
 import requests
 import os
-from flask import Flask, render_template, url_for, request
-from flask import jsonify
+from flask import Flask, render_template, url_for, request, jsonify
 
 app = Flask(__name__)
 
-event_text = 'Demo app for ECS'
+app_name = 'Demo App'
 
-print(event_text)
+print(app_name)
 
 
 @app.route('/')
@@ -28,7 +27,7 @@ def index():
     shell = False
     if 'shell' in request.args:
         shell = True
-    return render_template('index.html', url=url, hostname=hostname, ip=request.remote_addr, cocktail=random_cocktail['drinks'][0]['strDrink'], shell=shell)
+    return render_template('index.html', url=url, hostname=hostname, ip=request.remote_addr, cocktail=random_cocktail['drinks'][0]['strDrink'], shell=shell, app_name=app_name)
 
 
 @app.route('/ip')
