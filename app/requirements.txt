@@ -4,3 +4,5 @@ Flask==1.0
 requests==2.26.0
 itsdangerous==2.0.1
 Jinja2==3.0
+flask-ipban==0.2.1
+boto==2.38.0
