@@ -33,10 +33,7 @@ jobs:
           SAVE_RESULTS_IN_LACEWORK: true
           RESULTS_IN_GITHUB_SUMMARY: true
 
-      - name: Get short SHA
-        run: cat results.stdout
-
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          filePath: /path/to/file.txt
+          filePath: results.stdout
