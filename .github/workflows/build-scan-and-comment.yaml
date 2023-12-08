@@ -36,7 +36,7 @@ jobs:
       - name: Change formatting for PR
         run: |
             echo "# Lacework Inline Scanner Result" > pr-results.md
-            echo "## Container: `$REGISTRY/$IMAGE_NAME:$GHA_SHA`" >> pr-results.md
+            echo "## Container: \`$REGISTRY/$IMAGE_NAME:$GHA_SHA\`" >> pr-results.md
             echo "<pre>" >> pr-results.md
             cat results.stdout >> pr-results.md
             echo "</pre>" >> pr-results.md
