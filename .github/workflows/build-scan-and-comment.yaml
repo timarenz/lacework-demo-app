@@ -33,10 +33,15 @@ jobs:
           SAVE_RESULTS_IN_LACEWORK: true
           RESULTS_IN_GITHUB_SUMMARY: true
 
-      - name: Step summary
-        run: echo $GITHUB_STEP_SUMMARY
+      - name: Change formatting for PR
+        run: |
+            echo "# Lacework Inline Scanner Result" > pr-results.md
+            echo "## Container: `$REGISTRY/$IMAGE_NAME:$GHA_SHA`" >> pr-results.md
+            echo "<pre>" >> pr-results.md
+            cat results.stdout >> pr-results.md
+            echo "</pre>" >> pr-results.md
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
         with:
-          filePath: "${GITHUB_STEP_SUMMARY}"
+          filePath: pr-results.md
