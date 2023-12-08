@@ -33,6 +33,8 @@ jobs:
           SAVE_RESULTS_IN_LACEWORK: true
           RESULTS_IN_GITHUB_SUMMARY: true
 
+      - name: Step summary
+        run: echo $GITHUB_STEP_SUMMARY
 
       - name: Comment PR
         uses: thollander/actions-comment-pull-request@v2
